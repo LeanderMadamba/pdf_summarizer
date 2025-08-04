@@ -100,4 +100,19 @@ class TextExtractor:
             raise
 
 
+def test_pdf_extraction():
+    extractor = TextExtractor()
+    sample_pdf = "src/sampleText.pdf"
+    try:
+        result = extractor.extract_text(sample_pdf)
+        print("Extracted Text:\n")
+        print(result['text'])
+        print("\nMetadata:", result['metadata'])
+        print("Word Count:", result['word_count'])
+        print("Character Count:", result['char_count'])
+    except Exception as e:
+        print(f"Extraction failed: {e}")
+
+if __name__ == "__main__":
+    test_pdf_extraction()
 
